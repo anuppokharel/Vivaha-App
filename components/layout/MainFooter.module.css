@@ -43,6 +43,7 @@
   justify-content: space-between;
   border-top: 0.1px solid var(--white);
   font-family: "Open Sans", sans-serif;
+  padding: 15px 0;
 }
 
 .mainFooter .footerContainer .footerCopyright .endFooterStart {

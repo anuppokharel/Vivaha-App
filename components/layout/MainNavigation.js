@@ -4,31 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./MainNavigation.module.css";
 
 const MainNavigation = () => {
-  const navEl = useRef();
-  const [elIsVisible, setElIsVisible] = useState(false);
-
-  useEffect(() => {
-    const sticky = () => {
-      if (window.scrollY >= 150) {
-        setElIsVisible(true);
-      } else {
-        setElIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", sticky);
-  }, []);
-
   return (
     <header className={styles.navigationWrapper}>
-      <div className={styles.headerCarousel}>
-        <img src="/highlight-gallery/first.jpg" />
-      </div>
-      <nav
-        ref={navEl}
-        id="navBar"
-        className={elIsVisible ? styles.sticky : " "}
-      >
+      <video autoPlay loop muted playsInline className={styles.backVideo}>
+        <source src="video_2.mp4" type="video/mp4" />
+      </video>
+      <nav>
         <Link href="/" className={styles.mainHeaderImg}>
           <img
             className={styles.logo}
@@ -85,14 +66,16 @@ const MainNavigation = () => {
       <div className={styles.content}>
         <img className={styles.slideLeft} src="/love.png" />
         <p className={styles.slideLeft}>
-          This is the first smartwatch from our company. We're make a huge
-          collection of watches in all categories
+          Book Your Wedding
+          <br /> With Vivaha
         </p>
         <div className={`${styles.links} ${styles.slideLeft}`}>
           <a href="#" className={styles.LearnMore}>
-            Learn More
+            Book Wedding
           </a>
-          <a href="#">or Contact</a>
+          <a href="#" className={styles.contact}>
+            or Contact
+          </a>
         </div>
       </div>
     </header>

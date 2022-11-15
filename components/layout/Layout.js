@@ -8,9 +8,7 @@ const Layout = (props) => {
   return (
     <Fragment>
       <MainNavigation />
-      <div className={styles.wrapper}>
-        <main className={styles.main}>{props.children}</main>
-      </div>
+      <main className={styles.wrapper}>{props.children}</main>
       <MainFooter />
     </Fragment>
   );

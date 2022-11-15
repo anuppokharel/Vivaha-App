@@ -7,7 +7,8 @@
 @import "~slick-carousel/slick/slick-theme.css";
 
 :root {
-  --background: #261617;
+  --background: #eee;
+  --theme-background: #261617;
   --white: #fff;
   --grey: #a3a3a3;
   --black: #000;
@@ -33,18 +34,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-.mainContainer {
-  z-index: -1;
-}
-
-.mainContainer img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
 }
 
 /* Snow animation  */
@@ -88,13 +77,13 @@ a {
 }
 
 /* ********************************************* */
-/* 
-@media (prefers-color-scheme: dark) {
+
+@media (prefers-color-scheme: white) {
   html {
-    color-scheme: dark;
+    color-scheme: white;
   }
   body {
-    color: white;
+    color: black;
     background: var(--background);
   }
-} */
+}
