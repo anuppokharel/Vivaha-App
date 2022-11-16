@@ -1,11 +1,25 @@
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import styles from "./MainNavigation.module.css";
 
 const MainNavigation = () => {
+  const [navOnly, setNavOnly] = useState(false);
+
+  console.log(navOnly);
+
+  useEffect(() => {
+    if (window.location.href === "http://localhost:3000/") {
+      setNavOnly(false);
+    } else {
+      setNavOnly(true);
+    }
+  });
+
   return (
-    <header className={styles.navigationWrapper}>
+    <header
+      className={`${styles.navigationWrapper} ${navOnly ? styles.hidden : ""}`}
+    >
       <video autoPlay loop muted playsInline className={styles.backVideo}>
         <source src="video_2.mp4" type="video/mp4" />
       </video>
@@ -20,7 +34,7 @@ const MainNavigation = () => {
         </Link>
         <div id="menu" className={styles.menu}>
           <div>
-            <Link href="/package">
+            <Link href="/packages">
               <i className="fas fa-box-open"></i>
               <span>Packages</span>
             </Link>

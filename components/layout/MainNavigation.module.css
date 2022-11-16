@@ -8,6 +8,18 @@
   position: relative;
 }
 
+.navigationWrapper.hidden {
+  height: 100%;
+}
+
+.navigationWrapper.hidden .backVideo {
+  display: none;
+}
+
+.navigationWrapper.hidden .content {
+  display: none;
+}
+
 .navigationWrapper .backVideo {
   position: absolute;
   right: 0;
