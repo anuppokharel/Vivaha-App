@@ -1,34 +1,68 @@
-/* Login Form */
+/* Register Form */
 
-.center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  background: white;
-  border-radius: 10px;
+.main_container {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 75px;
+  height: 90vh;
+  width: 90%;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.image_container {
+  display: flex;
+}
+
+.image_container img {
+  width: 500px;
+  object-fit: cover;
+}
+
+.register_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin-right: 25px;
+  background-color: var(--white);
+  height: 100%;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
 }
 
-.center h1 {
+.register_container h1 {
   text-align: center;
-  padding: 20px 0;
+  padding: 25px 0 10px 0;
   border-bottom: 1px solid silver;
 }
 
-.center form {
+.register_container form {
   padding: 0 40px;
   box-sizing: border-box;
 }
 
-.center form .txt_field {
-  position: relative;
-  border-bottom: 2px solid #adadad;
-  margin: 30px 0;
+.register_container .input_field_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  /* border: 1px solid #000; */
+}
+.register_container .input_field_wrapper:nth-child(1) .input_field {
+  width: 47.5%;
 }
 
-.txt_field input {
+.register_container .input_field_wrapper .input_field {
+  margin: 25px 0 0 0;
+  width: 30%;
+}
+
+.register_container form .input_field {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 25px 0 0 0;
+}
+
+.input_field input {
   width: 100%;
   padding: 0 5px;
   height: 40px;
@@ -38,7 +72,7 @@
   outline: none;
 }
 
-.txt_field label {
+.input_field label {
   position: absolute;
   top: 50%;
   left: 5px;
@@ -49,68 +83,69 @@
   transition: 0.5s;
 }
 
-.txt_field span::before {
+.input_field span::before {
   content: "";
   position: absolute;
   top: 40px;
   left: 0;
   width: 0%;
   height: 2px;
-  background: #2691d9;
+  background: var(--black);
   transition: 0.5s;
 }
 
-.txt_field input:focus ~ label,
-.txt_field input:valid ~ label {
+.input_field input:focus ~ label,
+.input_field input:valid ~ label {
   top: -5px;
-  color: #2691d9;
+  color: var(--black);
 }
 
-.txt_field input:focus ~ span::before,
-.txt_field input:valid ~ span::before {
+.input_field input:focus ~ span::before,
+.input_field input:valid ~ span::before {
   width: 100%;
 }
 
-.pass {
+.forgot_pass {
   margin: -5px 0 20px 5px;
-  color: #a6a6a6;
+  color: var(--grey);
   cursor: pointer;
 }
 
-.pass:hover {
+.forgot_pass:hover {
   text-decoration: underline;
 }
 
-.center form button {
+.register_container form button {
   width: 100%;
   height: 50px;
   border: 1px solid;
-  background: #2691d9;
+  background: var(--black);
   border-radius: 25px;
   font-size: 18px;
   color: #e9f4fb;
+  margin: 17.5px 0 0 0;
   font-weight: 700;
   cursor: pointer;
   outline: none;
 }
 
-.center form button:hover {
-  border-color: #2691d9;
+.register_container form button:hover {
+  border-color: var(--black);
   transition: 0.5s;
 }
 
-.signup_link {
-  margin: 30px 0;
+.login_link {
+  margin: 15px 0 30px 0;
   text-align: center;
   font-size: 16px;
-  color: #666666;
+  color: var(--grey);
 }
 
-.signup_link a {
-  color: #2691d9;
+.login_link a {
+  color: var(--black);
   text-decoration: none;
 }
 
-.signup_link a:hover {
+.login_link a:hover {
   text-decoration: underline;
 }

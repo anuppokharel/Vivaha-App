@@ -6,8 +6,6 @@ import styles from "./MainNavigation.module.css";
 const MainNavigation = () => {
   const [navOnly, setNavOnly] = useState(false);
 
-  console.log(navOnly);
-
   useEffect(() => {
     if (window.location.href === "http://localhost:3000/") {
       setNavOnly(false);

@@ -10,6 +10,8 @@
 
 .navigationWrapper.hidden {
   height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .navigationWrapper.hidden .backVideo {
@@ -18,6 +20,11 @@
 
 .navigationWrapper.hidden .content {
   display: none;
+}
+
+.navigationWrapper.hidden nav {
+  position: static;
+  width: 100%;
 }
 
 .navigationWrapper .backVideo {
@@ -61,7 +68,7 @@
 .navigationWrapper nav .menu div {
   display: inline-block;
   list-style-type: none;
-  margin: 20px;
+  margin: 15px;
   color: #fff;
 }
 
@@ -81,7 +88,7 @@
 }
 
 .navigationWrapper .content img {
-  width: 650px;
+  width: 550px;
 }
 
 .content {
@@ -110,7 +117,7 @@
   flex-direction: column;
   color: #fff;
   bottom: 25%;
-  right: 35%;
+  right: 30%;
   opacity: 0;
 }
 
