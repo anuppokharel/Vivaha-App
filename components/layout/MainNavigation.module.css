@@ -18,6 +18,10 @@
   display: none;
 }
 
+.navigationWrapper.hidden .mainLogo {
+  display: none;
+}
+
 .navigationWrapper.hidden .content {
   display: none;
 }
@@ -34,6 +38,18 @@
   z-index: -1;
 }
 
+.navigationWrapper .mainLogo {
+  position: absolute;
+  width: 350px;
+  top: 0;
+}
+
+.navigationWrapper nav.hidden {
+  padding: 20px 0;
+  opacity: 0;
+  transition: ease 0.5s;
+}
+
 .navigationWrapper nav {
   display: flex;
   align-items: center;
@@ -42,6 +58,7 @@
   position: fixed;
   top: 0;
   left: 0;
+  opacity: 1;
   width: 100%;
   background: hsla(0, 0%, 100%, 0.8);
   backdrop-filter: saturate(180%) blur(5px);

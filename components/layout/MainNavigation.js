@@ -5,14 +5,28 @@ import styles from "./MainNavigation.module.css";
 
 const MainNavigation = () => {
   const [navOnly, setNavOnly] = useState(false);
+  const [navIsHidden, setNavIsHidden] = useState(true);
 
   useEffect(() => {
     if (window.location.href === "http://localhost:3000/") {
       setNavOnly(false);
     } else {
+      setNavIsHidden(false);
       setNavOnly(true);
     }
   });
+
+  useEffect(() => {
+    const sticky = () => {
+      if (window.scrollY >= 75) {
+        setNavIsHidden(false);
+      } else {
+        setNavIsHidden(true);
+      }
+    };
+
+    window.addEventListener("scroll", sticky);
+  }, []);
 
   return (
     <header
@@ -21,7 +35,8 @@ const MainNavigation = () => {
       <video autoPlay loop muted playsInline className={styles.backVideo}>
         <source src="video_2.mp4" type="video/mp4" />
       </video>
-      <nav>
+      <img src="vivahaw.png" className={styles.mainLogo} />
+      <nav className={`${navIsHidden ? styles.hidden : ""}`}>
         <Link href="/" className={styles.mainHeaderImg}>
           <img
             className={styles.logo}

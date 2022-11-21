@@ -1,26 +1,19 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styles from "./Login.module.css";
 
 const Login = () => {
-  // const nameHandlerRef = useRef();
   const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsValid, setEnterednameIsValid] = useState(false);
   const [enteredNameIsTouched, setEnteredNameIsTouched] = useState(false);
+
+  const enteredNameIsValid = enteredName.trim() !== "";
+  const nameInputFieldIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
 
   const enteredNameChangeHandler = (event) => {
     setEnteredName(event.target.value);
-
-    if (event.target.value.trim() !== "") {
-      setEnterednameIsValid(true);
-    }
   };
 
   const enteredNameBlurHandler = (event) => {
     setEnteredNameIsTouched(true);
-
-    if (enteredName === "") {
-      setEnterednameIsValid(false);
-    }
   };
 
   const submitFormHandler = (event) => {
@@ -28,19 +21,17 @@ const Login = () => {
 
     setEnteredNameIsTouched(true);
 
-    if (enteredName.trim() === "") {
-      setEnterednameIsValid(false);
-    } else {
-      setEnterednameIsValid(true);
+    if (!enteredNameIsValid) {
+      return;
     }
 
+    setEnteredName("");
+    setEnteredNameIsTouched(false);
+
     console.log(enteredName);
-    // console.log(nameHandlerRef.current.value);
   };
 
   console.log(enteredNameIsValid, enteredNameIsTouched);
-
-  const nameInputFieldIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
 
   return (
     <div className={styles.main_container}>
@@ -61,7 +52,6 @@ const Login = () => {
               onChange={enteredNameChangeHandler}
               onBlur={enteredNameBlurHandler}
               value={enteredName}
-              // ref={nameHandlerRef}
             />
             <span></span>
             {nameInputFieldIsInvalid && <p>Email must not be empty</p>}
