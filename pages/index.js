@@ -1,11 +1,9 @@
 // import SnowFlake from "../components/others/SnowFlake";
 
+import SwiperSlider from "../components/others/Swiper";
+
 const HomePage = () => {
-  return (
-    <div className="mainContainer">
-      <h1>Hello Fellas</h1>
-    </div>
-  );
+  return <SwiperSlider />;
 };
 
 export default HomePage;

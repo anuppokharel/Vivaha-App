@@ -1,37 +1,39 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
 
+import useInput from "../../hooks/use-input";
+
 const Login = () => {
-  const [enteredName, setEnteredName] = useState("");
-  const [enteredNameIsTouched, setEnteredNameIsTouched] = useState(false);
+  const {
+    value: enteredEmail,
+    isValid: enteredEmailIsValid,
+    hasError: emailInputHasError,
+    valueChangeHandler: emailChangeHandler,
+    valueBlurHandler: emailBlurHandler,
+    reset: resetEmailInput,
+  } = useInput((value) => value.includes("@"));
 
-  const enteredNameIsValid = enteredName.trim() !== "";
-  const nameInputFieldIsInvalid = !enteredNameIsValid && enteredNameIsTouched;
+  const {
+    value: enteredPassword,
+    isValid: enteredPasswordIsValid,
+    hasError: passwordInputHasError,
+    valueChangeHandler: passwordChangeHandler,
+    valueBlurHandler: passwordBlurHandler,
+    reset: resetPasswordInput,
+  } = useInput((value) => value.trim() !== "");
 
-  const enteredNameChangeHandler = (event) => {
-    setEnteredName(event.target.value);
-  };
+  let formIsValid = false;
 
-  const enteredNameBlurHandler = (event) => {
-    setEnteredNameIsTouched(true);
-  };
+  if (enteredEmailIsValid && enteredPasswordIsValid) {
+    formIsValid = true;
+  }
 
   const submitFormHandler = (event) => {
     event.preventDefault();
 
-    setEnteredNameIsTouched(true);
-
-    if (!enteredNameIsValid) {
-      return;
-    }
-
-    setEnteredName("");
-    setEnteredNameIsTouched(false);
-
-    console.log(enteredName);
+    resetEmailInput();
+    resetPasswordInput();
   };
-
-  console.log(enteredNameIsValid, enteredNameIsTouched);
 
   return (
     <div className={styles.main_container}>
@@ -44,29 +46,43 @@ const Login = () => {
         <form onSubmit={submitFormHandler}>
           <div
             className={`${styles.input_field} ${
-              nameInputFieldIsInvalid ? styles.errorInput : ""
+              emailInputHasError ? styles.errorInput : ""
             }`}
           >
             <input
               type="text"
-              onChange={enteredNameChangeHandler}
-              onBlur={enteredNameBlurHandler}
-              value={enteredName}
+              onChange={emailChangeHandler}
+              onBlur={emailBlurHandler}
+              value={enteredEmail}
+              required
             />
             <span></span>
-            {nameInputFieldIsInvalid && <p>Email must not be empty</p>}
+            {emailInputHasError && <p>Please enter valid email address</p>}
             <label>Email</label>
           </div>
 
-          <div className={styles.input_field}>
-            <input type="password" />
+          <div
+            className={`${styles.input_field} ${
+              passwordInputHasError ? styles.errorInput : ""
+            }`}
+          >
+            <input
+              type="password"
+              onChange={passwordChangeHandler}
+              onBlur={passwordBlurHandler}
+              value={enteredPassword}
+              required
+            />
             <span></span>
+            {passwordInputHasError && <p>Please enter valid password</p>}
             <label>Password</label>
           </div>
 
           <div className={styles.forgot_pass}>Forgot Password?</div>
 
-          <button type="submit">Login</button>
+          <button type="submit" disabled={!formIsValid}>
+            Login
+          </button>
 
           <div className={styles.signup_link}>
             Not a member? <a href="#">Signup</a>

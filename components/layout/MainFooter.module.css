@@ -1,72 +1,49 @@
 .mainFooter {
-  color: var(--white);
-  width: 100%;
-  height: 100%;
-  background-color: var(--light-black);
-}
-
-.footerContainer {
-  width: inherit;
-}
-
-.footerSocial {
-  background-color: var(--light-grey);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 25px 0;
-}
-
-.mainFooter .footerContainer .footerSocial p {
-  background-color: var(--black);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  height: 50px;
-  width: 50px;
-  margin: 0 2.5px;
-  cursor: pointer;
-}
-
-.mainFooter .footerContainer .footerSocial p:hover {
-  background-color: var(--white);
-  color: var(--black);
-}
-
-.mainFooter .footerContainer .footerSocial p i {
-  font-size: 25px;
-}
-
-.mainFooter .footerContainer .footerCopyright {
   display: flex;
   justify-content: space-between;
-  border-top: 0.1px solid var(--white);
-  font-family: "Open Sans", sans-serif;
-  padding: 15px 0;
+  height: 100px;
+  color: var(--light-grey);
+  /* border: 1px solid #fff; */
 }
 
-.mainFooter .footerContainer .footerCopyright .endFooterStart {
-  display: flex;
-}
-
-.mainFooter .footerContainer .footerCopyright .endFooterStart a {
-  padding: 0 15px;
-}
-
-.mainFooter .footerContainer .footerCopyright .endFooterStart a p:hover {
-  color: var(--grey);
-}
-
-.mainFooter .footerContainer .footerCopyright .endFooterFinish {
+.mainFooter .footerCopyright {
   display: flex;
   align-items: center;
 }
 
-.mainFooter .footerContainer .footerCopyright .endFooterFinish small {
-  display: block;
-  padding: 0 15px;
-  font-size: 16px;
-  color: var(--grey);
-  cursor: default;
+.mainFooter .footerCopyright small a {
+  color: var(--white);
+}
+
+.mainFooter .footerSocial {
+  display: flex;
+  align-items: center;
+}
+
+.mainFooter .footerSocial a {
+  margin-right: 15px;
+}
+
+.mainFooter .footerSocial a:last-child {
+  margin-right: 0;
+}
+
+.mainFooter .footerSocial a p {
+  font-size: 14px;
+}
+
+.mainFooter .footerSocial a p:hover {
+  color: var(--white);
+}
+
+@media only screen and (max-width: 768px) {
+  .mainFooter .footerCopyright {
+    visibility: hidden;
+    display: none;
+  }
+
+  .mainFooter .footerSocial {
+    justify-content: center;
+    width: 100%;
+  }
 }

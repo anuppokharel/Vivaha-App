@@ -1,198 +1,140 @@
-.navigationWrapper {
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  height: 100px;
+}
+
+.mainHeader .logo {
+}
+
+.mainHeader .logo a img {
+  margin: 0;
+  width: 200px;
+}
+
+.mainHeader .responsiveMenu {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.mainHeader .responsiveMenu i {
+  font-size: 25px;
+}
+
+.mainHeader .responsiveMenu .bars {
+  position: absolute;
+  top: -1px;
+}
+
+.mainHeader .responsiveMenu .cross {
+  position: absolute;
+  left: 2px;
+  top: -2.5px;
+}
+.mainHeader .responsiveMenu .cross i {
+  font-size: 30px;
+}
+
+.mainHeader .responsiveMenu .bars.hidden i,
+.mainHeader .responsiveMenu .cross.hidden i {
+  visibility: hidden;
+}
+
+.mainHeader .menu {
+  color: var(--grey);
+  margin: 0 5px;
+}
+
+.mainHeader .menu ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.mainHeader .menu ul li {
+  margin: 7.5px 20.5px 0 0;
+}
+
+.mainHeader .menu ul li:last-child {
+  margin-right: 0;
+}
+
+.mainHeader .menu ul li a {
+  font-size: 15.5px;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.mainHeader .menu ul li a:hover {
+  color: var(--white);
+}
+
+.mainHeader .responsiveNav {
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100vh;
-  padding: 0 5%;
-  position: relative;
-}
-
-.navigationWrapper.hidden {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
-
-.navigationWrapper.hidden .backVideo {
-  display: none;
-}
-
-.navigationWrapper.hidden .mainLogo {
-  display: none;
-}
-
-.navigationWrapper.hidden .content {
-  display: none;
-}
-
-.navigationWrapper.hidden nav {
-  position: static;
-  width: 100%;
-}
-
-.navigationWrapper .backVideo {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
-.navigationWrapper .mainLogo {
-  position: absolute;
-  width: 350px;
-  top: 0;
-}
-
-.navigationWrapper nav.hidden {
-  padding: 20px 0;
-  opacity: 0;
-  transition: ease 0.5s;
-}
-
-.navigationWrapper nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 8%;
   position: fixed;
   top: 0;
-  left: 0;
-  opacity: 1;
+  right: 0;
+  width: 0;
+  height: 0;
+  visibility: visible;
+  overflow: hidden;
+  z-index: 50;
+  border-bottom-left-radius: 100%;
+  transition: width 0.5s, height 0.5s, border-radius 0.5s;
+}
+
+.mainHeader .responsiveNav.openMenu {
   width: 100%;
-  background: hsla(0, 0%, 100%, 0.8);
-  backdrop-filter: saturate(180%) blur(5px);
-  border-bottom: 1px solid hsla(0, 0%, 100%, 0.15);
-  transition: padding 1s;
-  z-index: 1;
+  height: 100vh;
+  border-bottom-left-radius: 0;
 }
 
-.navigationWrapper nav a img {
-  margin: 0;
-  padding: 0;
-  background-position: center;
-  background-size: cover;
-  width: 225px;
-  cursor: pointer;
+.mainHeader .responsiveNav ul {
+  list-style: none;
+  /* border: 1px solid #fff; */
 }
 
-.navigationWrapper nav .menu {
+.mainHeader .responsiveNav ul li {
+  margin: 25px auto;
   text-align: center;
-  margin: 5px 0 0 0;
-  width: auto;
+  opacity: 0;
+  transform: translateY(50px);
 }
 
-.navigationWrapper nav .menu div {
+.mainHeader .responsiveNav.openMenu ul li {
+  opacity: 1;
+  transform: translateY(0);
+  transition: transform 1s, opacity 1s;
+  transition-delay: 0.5s;
+}
+
+.mainHeader .responsiveNav ul li a {
   display: inline-block;
-  list-style-type: none;
-  margin: 15px;
-  color: #fff;
-}
-
-.navigationWrapper nav .menu div a {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  color: var(--black);
-  font-size: 20px;
-}
-
-.navigationWrapper .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 110px 0 0 0;
-}
-
-.navigationWrapper .content img {
-  width: 550px;
-}
-
-.content {
-  position: relative;
-}
-
-.content p {
-  position: absolute;
-  color: #fff;
-  top: 35%;
-  font-size: 30px;
-  line-height: 45px;
+  font-size: 25px;
   font-weight: 600;
-  opacity: 0;
 }
 
-.content span img {
-  background-position: center;
-  background-size: cover;
-  width: 50%;
-}
-
-.content .links {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  bottom: 25%;
-  right: 30%;
-  opacity: 0;
-}
-
-.content .LearnMore {
-  border: 2px solid #fff;
-  padding: 10px 35px;
-  border-radius: 30px;
-  margin-right: 15px;
-}
-
-.content .LearnMore:hover {
-  color: var(--black);
-  background-color: var(--white);
-}
-
-.content .contact {
-  margin: 15px 0 0 50px;
-}
-
-.content .contact:hover {
-  text-decoration: underline;
-}
-
-.slideLeft {
-  animation: slideLeft 1s linear forwards;
-}
-
-@keyframes slideLeft {
-  0% {
-    transform: translate(100px);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(0px);
-    opacity: 1;
+@media only screen and (max-width: 426px) {
+  .mainHeader {
+    justify-content: space-around;
   }
 }
 
-p.slideLeft {
-  animation-delay: 1s;
-}
-
-.links.slideLeft {
-  animation-delay: 2s;
-}
-
-/* Responsive */
-
-@media (min-aspect-ratio: 16/9) {
-  .backVideo {
-    width: 100%;
-    height: auto;
+@media only screen and (max-width: 1280px) {
+  .mainHeader .responsiveMenu {
+    visibility: visible;
   }
-}
-
-@media (max-aspect-ratio: 16/9) {
-  .backVideo {
-    width: auto;
-    height: 100%;
+  .mainHeader .menu {
+    display: none;
+    visibility: hidden;
   }
 }

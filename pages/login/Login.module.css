@@ -87,12 +87,14 @@
   transition: 0.5s;
 }
 
-.input_field input:focus ~ label {
+.input_field input:focus ~ label,
+.input_field input:valid ~ label {
   top: -5px;
   color: var(--black);
 }
 
-.input_field input:focus ~ span::before {
+.input_field input:focus ~ span::before,
+.input_field input:valid ~ span::before {
   width: 100%;
 }
 
@@ -131,6 +133,15 @@
 .login_container form button:hover {
   border-color: var(--black);
   transition: 0.5s;
+}
+
+.login_container form button:disabled,
+.login_container form button:disabled:hover,
+.login_container form button:disabled:active {
+  background-color: var(--grey);
+  color: var(--white);
+  border-color: var(--grey);
+  cursor: not-allowed;
 }
 
 .signup_link {

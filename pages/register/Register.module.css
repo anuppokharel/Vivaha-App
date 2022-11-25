@@ -62,6 +62,15 @@
   margin: 25px 0 0 0;
 }
 
+.register_container form .input_field.errorInput span::before {
+  background: red;
+  width: 100%;
+}
+
+.register_container form .input_field.errorInput label {
+  color: red;
+}
+
 .input_field input {
   width: 100%;
   padding: 0 5px;
@@ -103,6 +112,23 @@
 .input_field input:focus ~ span::before,
 .input_field input:valid ~ span::before {
   width: 100%;
+}
+
+.input_field p {
+  color: red;
+  font-size: 15px;
+  position: absolute;
+  right: 0;
+  top: 30%;
+  transition: f;
+}
+
+.input_field small {
+  color: red;
+  position: absolute;
+  right: 0;
+  top: 30%;
+  transition: f;
 }
 
 .forgot_pass {
